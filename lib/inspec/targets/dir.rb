@@ -66,7 +66,7 @@ module Inspec::Targets
     end
 
     def self.post_resolve(resolver, res, _target)
-      return resolver.handler.resolve_contents(res) if handler.respond_to?(:resolve_contents)
+      return resolver.handler.resolve_contents(res) if resolver.handler.respond_to?(:resolve_contents)
       res
     end
 
