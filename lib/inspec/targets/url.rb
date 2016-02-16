@@ -64,11 +64,9 @@ module Inspec::Targets
         new_path = pn.dirname.join(pn.basename.to_s.gsub('tar.gz', 'zip'))
         File.rename(pn.to_s, new_path.to_s)
         r = ZipHelper.new(new_path)
-        # @unlink_path = new_path
       elsif ['application/x-gzip', 'application/gzip'].include?(content_type)
         # use tar helper as default (otherwise returns nil)
         r = TarHelper.new(archive.path)
-        # @unlink_path = archive.path
       end
       r
     end
